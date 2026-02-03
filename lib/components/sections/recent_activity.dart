@@ -1,5 +1,6 @@
 import 'package:alubank/components/box_card.dart';
 import 'package:alubank/components/color_dot.dart';
+import 'package:alubank/components/content_division.dart';
 import 'package:alubank/themes/theme_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -21,8 +22,10 @@ class _RecentActivityContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(
               children: [
@@ -51,7 +54,7 @@ class _RecentActivityContent extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Saída'),
+                    Text('Entrada'),
                     Text(
                       '\$9900.97',
                       style: Theme.of(context).textTheme.bodyLarge,
@@ -61,6 +64,27 @@ class _RecentActivityContent extends StatelessWidget {
               ],
             ),
           ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 16, bottom: 8),
+          child: Text('Limite de gastos: \$432,93'),
+        ),
+        Container(
+          clipBehavior: Clip
+              .hardEdge, // This property tells the container to prevent any children from overlapping its boundaries. The borderRadius configuration only works here because of that.
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
+          child: LinearProgressIndicator(value: 0.49, minHeight: 8),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8, bottom: 8),
+          child: ContentDivision(),
+        ),
+        Text(
+          'Esse mês você gastou \$1500.00 com jogos. Tente abaixar esse custo!',
+        ),
+        TextButton(
+          onPressed: () {},
+          child: Text('Diga-me como!', style: TextStyle(fontSize: 16)),
         ),
       ],
     );
