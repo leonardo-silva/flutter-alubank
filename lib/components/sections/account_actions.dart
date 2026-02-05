@@ -21,22 +21,31 @@ class AccountActions extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              BoxCard(
-                boxContent: _AccountActionsContent(
-                  icon: Icon(Icons.account_balance_wallet),
-                  text: 'Depositar',
+              InkWell(
+                onTap: () {},
+                child: BoxCard(
+                  boxContent: _AccountActionsContent(
+                    icon: Icon(Icons.account_balance_wallet),
+                    text: 'Depositar',
+                  ),
                 ),
               ),
-              BoxCard(
-                boxContent: _AccountActionsContent(
-                  icon: Icon(Icons.account_balance_wallet),
-                  text: 'Depositar',
+              InkWell(
+                onTap: () {},
+                child: BoxCard(
+                  boxContent: _AccountActionsContent(
+                    icon: Icon(Icons.cached),
+                    text: 'Transferir',
+                  ),
                 ),
               ),
-              BoxCard(
-                boxContent: _AccountActionsContent(
-                  icon: Icon(Icons.account_balance_wallet),
-                  text: 'Depositar',
+              InkWell(
+                onTap: () {},
+                child: BoxCard(
+                  boxContent: _AccountActionsContent(
+                    icon: Icon(Icons.center_focus_strong),
+                    text: 'Ler',
+                  ),
                 ),
               ),
             ],
@@ -58,11 +67,14 @@ class _AccountActionsContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(padding: const EdgeInsets.only(bottom: 8.0), child: icon),
-        Text(text),
-      ],
+    return SizedBox(
+      width: 76, // It puts all the cards in this sections with the same width
+      child: Column(
+        children: [
+          Padding(padding: const EdgeInsets.only(bottom: 8.0), child: icon),
+          Text(text),
+        ],
+      ),
     );
   }
 }
